@@ -1,0 +1,8 @@
+{
+  "name": "biskalKu",
+  "app_id": "6b81b308",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

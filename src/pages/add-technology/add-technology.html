@@ -1,0 +1,105 @@
+<ion-header>
+   <ion-navbar>
+      <ion-title>{{ pageTitle }}</ion-title>
+   </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+   <div>
+      <!-- <ion-item *ngIf="isEdited && !hideForm">
+         <button 
+            ion-button 
+            item-right
+            color="secondary" 
+            text-center 
+            block 
+            (click)="deleteEntry()">Remove this Entry?</button>
+      </ion-item> -->
+
+
+      <div *ngIf="hideForm">
+         <ion-item class="post-entry-message" text-wrap>
+            <h2>Success!</h2>
+            <p>Maybe you'd like to edit an existing entry or add a new record?</p>
+            <p>Simply go back to the home page and select the option you want to pursue.</p>
+         </ion-item>
+      </div>
+      
+
+      <div *ngIf="!hideForm">
+         <form [formGroup]="form" (ngSubmit)="saveEntry()">
+                  
+            <ion-card>
+                  <!-- <ion-card-header>
+                    REGISTER
+                  </ion-card-header> -->
+                  <ion-card-content>     
+            <ion-list>
+               <ion-item-group>
+                  <ion-item-divider color="light">Bike Model</ion-item-divider>
+                  <ion-item>
+                     <ion-input 
+                        type="text" 
+                        placeholder="Enter bike model.." 
+                        formControlName="bikeModel" 
+                        [(ngModel)]="bikeModel"></ion-input>
+                  </ion-item>
+               </ion-item-group>
+
+
+               <ion-item-group>
+                  <ion-item-divider color="light">Bike Rate</ion-item-divider>
+                  <ion-item>
+                     <ion-input
+                        placeholder="$$$" 
+                        formControlName="bikeRate" 
+                        rows="6"
+                        [(ngModel)]="bikeRate"></ion-input>
+                  </ion-item>
+               </ion-item-group>
+			   
+			   
+			   <ion-item-group>
+                  <ion-item-divider color="light">Bike Description</ion-item-divider>
+                  <ion-item>
+                     <ion-textarea 
+                        placeholder="Description..." 
+                        formControlName="Description" 
+                        rows="6"
+                        [(ngModel)]="Description"></ion-textarea>
+                  </ion-item>
+               </ion-item-group>             
+
+
+               <ion-item>
+                  <button 
+                     ion-button 
+                     color="primary" 
+                     text-center 
+                     block 
+                     [disabled]="!form.valid">Save Entry</button>
+               </ion-item>
+
+            </ion-list>
+
+      </ion-card-content>
+</ion-card>
+
+         </form>
+
+      </div>
+   </div>
+
+   <button ion-button block (click)="openMenu()">
+      Upload Image
+  </button>   
+
+   
+   
+   
+   
+
+
+</ion-content>
